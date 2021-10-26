@@ -1,11 +1,20 @@
 package com.userregistration;
 
 public class MoodAnalyzer {
-    public static String analyseMood(String mood) {
-        if (mood.toLowerCase().contains("Happy")) {
-            return "Entry Successfully";
-        } else if (mood.toLowerCase().contains("Sad")) {
-            return "Entry Failed";
-        } else return null;
-    }
+
+	public static String analyseMood(String mood) throws MoodAnalyserException {
+		try {
+			if (mood.length() == 0) {
+				throw new MoodAnalyzerException(MoodAnalyzerException.type.EMPTY, "Invalid Input");
+			} else if (mood.toLowerCase().contains("happy")) {
+				return "Entry Successful";
+			} else if (mood.toLowerCase().contains("sad")) {
+				return "Entry Failed";
+			} else {
+				return "Invalid Input";
+			}
+		} catch (NullPointerException e) {
+			throw new MoodAnalyzerException(MoodAnalyzerException.type.NULL, "Invalid mood");
+		}
+	}
 }

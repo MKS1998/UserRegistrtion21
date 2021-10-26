@@ -127,4 +127,24 @@ public class UserRegistrationTest {
 		String result = MoodAnalyzer.analyseMood("I am in Sad mood");
 		Assert.assertEquals("Entry Failed", result);
 	}
+
+	@Test
+	public void givenMessage_NULL_ShouldReturnMoodAnalyserException() throws MoodAnalyzerException {
+		MoodAnalyzer moodAnalyser = new MoodAnalyzer();
+		try {
+			MoodAnalyzer.analyseMood(null);
+		} catch (MoodAnalyzerException e) {
+			Assert.assertEquals(MoodAnalyzerException.type.NULL, e.type);
+		}
+	}
+
+	@Test
+	public void givenMessage_EMPTY_ShouldReturnMoodAnalyzerException() throws MoodAnalyzerException {
+		MoodAnalyzer moodAnalyser = new MoodAnalyzer();
+		try {
+			MoodAnalyzer.analyseMood("");
+		} catch (MoodAnalyzerException e) {
+			Assert.assertEquals(MoodAnalyzerException.type.EMPTY, e.type);
+		}
+	}
 }

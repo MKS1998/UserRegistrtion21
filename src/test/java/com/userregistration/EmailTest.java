@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class EmailTest{
+public class EmailTest {
 	private String email;
 	private boolean expectedResult;
 
@@ -38,5 +38,27 @@ public class EmailTest{
 		UserRegistration userRegistration = new UserRegistration();
 		boolean result = userRegistration.emailAddressSample(this.email);
 		Assert.assertEquals(this.expectedResult, result);
+	}
+
+	@Test
+	public void givenEmail1_null_ShouldThrowUserRegistrationException() {
+		UserRegistration userRegistration = new UserRegistration();
+		try {
+			userRegistration.email(null);
+		} catch (UserRegistrationException e) {
+			Assert.assertEquals(UserRegistrationException.type.NULL, e.type);
+			System.out.println(e);
+		}
+	}
+
+	@Test
+	public void givenEmail1_EMPTY_ShouldThrowUserRegistrationException() {
+		UserRegistration userRegistration = new UserRegistration();
+		try {
+			userRegistration.email("");
+		} catch (UserRegistrationException e) {
+			Assert.assertEquals(UserRegistrationException.type.EMPTY, e.type);
+			System.out.println(e);
+		}
 	}
 }

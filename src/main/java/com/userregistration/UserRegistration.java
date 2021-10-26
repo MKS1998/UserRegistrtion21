@@ -68,4 +68,8 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(emailId);
 		return matcher.matches();
 	}
+
+	public void email(Object object) {
+		return ;
+	}
 }
