@@ -55,14 +55,28 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.phoneNumber("+91 960431527");
 		Assert.assertEquals(false, result);
 	}
+
 	@Test
-    public void givenPassword_WhenInFormat_ShouldReturnTrue() {
-        boolean result = userRegistration.passwordRule1("abcdegss");
-        Assert.assertEquals(true, result);
-    }
-    @Test
-    public void givenPassword_WhenOurOfFormat_ShouldReturnFalse() {
-        boolean result = userRegistration.passwordRule1("abcd");
-        Assert.assertEquals(false, result);
-    }
+	public void givenPassword_WhenInFormat_ShouldReturnTrue() {
+		boolean result = userRegistration.passwordRule1("abcdegss");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenPassword_WhenOurOfFormat_ShouldReturnFalse() {
+		boolean result = userRegistration.passwordRule1("abcd");
+		Assert.assertEquals(false, result);
+	}
+
+	@Test
+	public void givenPasswordRule2_WhenInFormat_ShouldReturnTrue() {
+		boolean result = userRegistration.passwordRule2("Abcdefgss");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenPasswordRule2_WhenOurOfFormat_ShouldReturnFalse() {
+		boolean result = userRegistration.passwordRule2("abcdefgss");
+		Assert.assertEquals(false, result);
+	}
 }
