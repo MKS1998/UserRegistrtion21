@@ -10,10 +10,18 @@ public class UserRegistration {
 		Matcher matcher = pattern.matcher(firstName);
 		return matcher.matches();
 	}
+
 	public boolean lastName(String lastName) {
-        String regex = "^[A-Z]{1}[a-z]{2,}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(lastName);
-        return matcher.matches();
-    }
+		String regex = "^[A-Z]{1}[a-z]{2,}$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(lastName);
+		return matcher.matches();
+	}
+
+	public boolean emailAddress(String email) {
+		String regex = "^[a-z0-9]{3,}+([_+-.][a-z0-9]{3,}+)*@[a-z0-9]+.[a-z]{2,3}+(.[a-z]{2,3}){0,1}$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(email);
+		return matcher.matches();
+	}
 }
