@@ -31,15 +31,28 @@ public class UserRegistrationTest {
 		Assert.assertEquals(false, result);
 
 	}
-	@Test
-    public void givenEmail_WhenInFormat_ShouldReturnTrue() {
-        boolean result = userRegistration.emailAddress("mks@gmail.com.com");
-        Assert.assertEquals(true, result);
-    }
 
-    @Test
-    public void givenEmail_WhenOurOfFormat_ShouldReturnFalse() {
-        boolean result = userRegistration.emailAddress("mks()*@gmail.com");
-        Assert.assertEquals(false, result);
-    }
+	@Test
+	public void givenEmail_WhenInFormat_ShouldReturnTrue() {
+		boolean result = userRegistration.emailAddress("mks@gmail.com.com");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenEmail_WhenOurOfFormat_ShouldReturnFalse() {
+		boolean result = userRegistration.emailAddress("mks()*@gmail.com");
+		Assert.assertEquals(false, result);
+	}
+
+	@Test
+	public void givenPhoneNumber_WhenInFormat_ShouldReturnTrue() {
+		boolean result = userRegistration.phoneNumber("91 9503324466");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenPhoneNumber_WhenOurOfFormat_ShouldReturnFlase() {
+		boolean result = userRegistration.phoneNumber("+91 960431527");
+		Assert.assertEquals(false, result);
+	}
 }
