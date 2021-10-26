@@ -103,4 +103,16 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.passwordRule4("Mohin");
 		Assert.assertEquals(false, result);
 	}
+
+	@Test
+	public void givenEmail4_WhenInFormat_ShouldReturnTrue() {
+		boolean result = userRegistration.emailAddressSample("mks@1.com");
+		Assert.assertEquals(true, result);
+	}
+
+	@Test
+	public void givenEmail4_WhenOurOfFormat_ShouldReturnFalse() {
+		boolean result = userRegistration.emailAddressSample("aabc.@gmail.com");
+		Assert.assertEquals(false, result);
+	}
 }
